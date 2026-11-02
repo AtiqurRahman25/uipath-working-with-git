@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Automation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080d19;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+nav {
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #8b9cff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #aab2c5;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-btn {
+    background: #7165f5;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #6555ff;
+    filter: blur(180px);
+    opacity: .22;
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid rgba(139,156,255,.4);
+    background: rgba(113,101,245,.12);
+    border-radius: 30px;
+    color: #a9a2ff;
+    font-size: 13px;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.12;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.gradient {
+    background: linear-gradient(90deg, #8c80ff, #54d5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 25px auto;
+    color: #9ba6bd;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    padding: 15px 28px;
+    background: #7165f5;
+    color: white;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    background: #8b80ff;
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    padding: 15px 28px;
+    border: 1px solid #343d55;
+    color: white;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-secondary:hover {
+    background: #182137;
+}
+
+/* FEATURES */
+
+.features {
+    padding: 80px 8%;
+    background: #0b1221;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: #9ba6bd;
+    font-size: 15px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: #111b30;
+    border: 1px solid #202d48;
+    padding: 35px;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #7165f5;
+}
+
+.icon {
+    font-size: 32px;
+    margin-bottom: 22px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 13px;
+}
+
+.card p {
+    color: #98a5bc;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* CTA */
+
+.cta {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 40px;
+    margin-bottom: 18px;
+}
+
+.cta p {
+    color: #9ba6bd;
+    margin-bottom: 30px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 8%;
+    border-top: 1px solid #202d48;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: #8490a8;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .section-heading h2,
+    .cta h2 {
+        font-size: 30px;
+    }
+
+    footer {
+        text-align: center;
+        justify-content: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+    <div class="logo">✦ NOVA</div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="nav-btn">Get Started →</a>
+</nav>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <div class="glow"></div>
+
+    <div class="hero-content">
+
+        <span class="tag">
+            ✨ The Future of Smart Automation
+        </span>
+
+        <h1>
+            Automate Your Work.<br>
+            <span class="gradient">Focus on What Matters.</span>
+        </h1>
+
+        <p>
+            Simplify your daily workflow with intelligent automation.
+            Save time, increase productivity, and let technology
+            handle repetitive tasks while you focus on growing.
+        </p>
+
+        <div class="buttons">
+            <a href="#contact" class="btn-primary">
+                Get Started →
+            </a>
+
+            <a href="#features" class="btn-secondary">
+                Explore Features
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES -->
+
+<section class="features" id="features">
+
+    <div class="section-heading">
+        <h2>Powerful Features</h2>
+        <p>Everything you need to work smarter and faster.</p>
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="card">
+            <div class="icon">🤖</div>
+            <h3>AI Automation</h3>
+            <p>
+                Use intelligent automation to handle repetitive
+                tasks and simplify your everyday workflow.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Save Time</h3>
+            <p>
+                Reduce manual work and improve efficiency
+                with automated processes.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔒</div>
+            <h3>Secure Workflow</h3>
+            <p>
+                Keep your workflow organized with secure
+                integrations and credential management.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta" id="about">
+
+    <h2>Ready to Work Smarter?</h2>
+
+    <p>
+        Start simplifying your workflow with intelligent automation.
+    </p>
+
+    <a href="form.html" class="btn-primary">
+        Start Your Journey →
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div>© 2026 Copyright. All rights reserved.</div>
+
+    <div>Built with ❤️ for a smarter future.</div>
+
+</footer>
+
+</body>
+</html>
