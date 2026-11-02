@@ -1,6 +1,9 @@
 from flask import Flask, request, render_template
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
 
 app = Flask(__name__)
 
@@ -43,7 +46,8 @@ def submit():
         driver = webdriver.Chrome(options=options)
 
         # Open test website
-        driver.get("https://example.com")
+        driver.get("https://practice-automation.com/ads/")
+        time.sleep(5)
 
         print("Selenium started successfully!")
 
